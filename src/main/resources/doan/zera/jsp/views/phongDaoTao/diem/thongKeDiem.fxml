@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="800.0"
+      style="-fx-background-color: #00c853; -fx-stroke: #00913c;" xmlns="http://javafx.com/javafx/8.0.121"
+      fx:controller="doan.zera.jsp.controller.phongDaoTao.diem.ThongKeDiemController">
+    <HBox alignment="TOP_CENTER" prefHeight="100">
+        <children>
+            <JFXComboBox fx:id="cbbKyHoc" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                         onAction="#onActionCbbKyHoc" promptText="Kỳ học" style="-fx-background-color: transparent;"
+                         unFocusColor="#ad0b00" HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </JFXComboBox>
+
+            <JFXComboBox fx:id="cbbMonHoc" focusColor="#02115a"
+                         labelFloat="true" maxWidth="150"
+                         promptText="Môn học" onAction="#onActionCbbMonHoc"
+                         style="-fx-background-color: transparent;"
+                         unFocusColor="#ad0b00" HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </JFXComboBox>
+            <JFXComboBox fx:id="cbbKhoaHoc" onAction="#onActionCbbKhoaHoc"
+                         focusColor="#02115a" labelFloat="true" maxWidth="150" promptText="Khóa học"
+                         style="-fx-background-color: transparent;" unFocusColor="#ad0b00" HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </JFXComboBox>
+            <JFXComboBox fx:id="cbbKhoa" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                         onAction="#onActionCbbKhoa" promptText="Khoa học" style="-fx-background-color: transparent;"
+                         unFocusColor="#ad0b00" HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </JFXComboBox>
+            <JFXComboBox fx:id="cbbNganhHoc" focusColor="#02115a" onAction="#onActionCbbNganhHoc"
+                         labelFloat="true" maxWidth="150" promptText="Ngành học"
+                         style="-fx-background-color: transparent;" unFocusColor="#ad0b00"
+                         HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+
+                    </FXCollections>
+                </items>
+            </JFXComboBox>
+        </children>
+        <VBox.margin>
+            <Insets top="20"/>
+        </VBox.margin>
+    </HBox>
+
+
+    <HBox alignment="CENTER" fx:id="hboxChart" style="-fx-background-color: white" prefHeight="500.0" prefWidth="800.0">
+        <children>
+
+        </children>
+    </HBox>
+</VBox>

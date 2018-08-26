@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" stylesheets="@../../css/dark-theme.css"
+           xmlns="http://javafx.com/javafx/8.0.141"
+           fx:controller="doan.zera.jsp.controller.phongDaoTao.sinhVien.AddSinhVienController">
+    <children>
+        <AnchorPane id="AnchorPane" fx:id="mainContainer" prefHeight="338.0" prefWidth="464.0" styleClass="custom-pane"
+                    stylesheets="@../../css/dark-theme.css">
+            <children>
+                <VBox prefHeight="256.0" prefWidth="404.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <JFXTextField fx:id="maSinhVien" labelFloat="true" promptText="Mã Sinh viên">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <HBox spacing="45" layoutX="20.0" layoutY="30.0">
+                            <children>
+                                <JFXTextField fx:id="ho" labelFloat="true" promptText="Họ"/>
+                                <JFXTextField fx:id="ten" labelFloat="true" promptText="Tên"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox spacing="45" layoutX="20.0" layoutY="30.0">
+                            <children>
+                                <Label>Giới tính</Label>
+                                <JFXRadioButton fx:id="namGioiTinh" text="Nam" selected="true">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="gioiTinhGroup"/>
+                                    </toggleGroup>
+                                </JFXRadioButton>
+                                <JFXRadioButton fx:id="nuGioiTinh" selected="false" toggleGroup="$gioiTinhGroup"
+                                                text="Nữ"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <JFXDatePicker fx:id="ngaySinh" promptText="Ngày sinh">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </JFXDatePicker>
+                        <JFXTextField fx:id="queQuan" labelFloat="true" promptText="Quê quán">
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </JFXTextField>
+                        <HBox spacing="45" layoutX="20.0" layoutY="30.0" prefWidth="200">
+                            <children>
+                                <JFXComboBox id="jfxCbbKhoaHoc" fx:id="cbbKhoaHoc"
+                                             style="-fx-background-color: transparent;"
+                                             promptText="Khóa học" focusColor="#02115a" unFocusColor="#ad0b00">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+
+                                        </FXCollections>
+                                    </items>
+                                </JFXComboBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox spacing="75" layoutX="20.0" layoutY="30.0" prefWidth="200">
+                            <children>
+                                <JFXComboBox id="jfxCbbNganhHoc" fx:id="cbbNganhHoc"
+                                             style="-fx-background-color: transparent;"
+                                             promptText="Ngành học" focusColor="#02115a" unFocusColor="#ad0b00">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+
+                                        </FXCollections>
+                                    </items>
+                                </JFXComboBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="10.0" right="10.0" top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="404.0" spacing="30.0">
+                            <children>
+                                <JFXButton onAction="#onSave" prefHeight="66.0" prefWidth="100.0" text="Lưu"/>
+                                <JFXButton onAction="#onCancel" layoutX="10.0" layoutY="10.0" prefHeight="66.0"
+                                           prefWidth="100.0" text="Hủy"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="25.0"/>
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="20.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                    </padding>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

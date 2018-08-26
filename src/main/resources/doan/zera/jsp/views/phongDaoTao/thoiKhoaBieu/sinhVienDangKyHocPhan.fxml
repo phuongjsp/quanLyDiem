@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="doan.zera.jsp.controller.phongDaoTao.thoiKhoaBieu.SinhVienDangKyHocPhanController">
+    <children>
+
+        <TableView fx:id="svDkHpTable" prefHeight="400.0" prefWidth="350.0">
+            <columns>
+                <TableColumn fx:id="maSv" prefWidth="120.0" text="Mã SV"/>
+                <TableColumn fx:id="ho" prefWidth="75.0" text="ho"/>
+                <TableColumn fx:id="ten" prefWidth="157.0" text="ten"/>
+                <TableColumn fx:id="khoaHoc" prefWidth="246.0" text="Khóa hoc"/>
+            </columns>
+            <contextMenu>
+                <ContextMenu styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh"/>
+
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Huy"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <VBox alignment="TOP_CENTER" layoutX="355.0" prefHeight="400.0" prefWidth="350.0"
+              style="-fx-background-color: #84e461">
+            <Label style="-fx-font-size: 24;-fx-text-fill: blue" text="Thêm sinh viên "/>
+            <HBox>
+                <children>
+                    <JFXComboBox fx:id="cbbKhoaHoc" focusColor="#02115a"
+                                 labelFloat="true" maxWidth="150"
+                                 onAction="#onSetCbbKhoaHoc" promptText="Khoa học"
+                                 style="-fx-background-color: transparent;"
+                                 unFocusColor="#ad0b00" HBox.hgrow="ALWAYS">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                            </FXCollections>
+                        </items>
+                    </JFXComboBox>
+                </children>
+                <VBox.margin>
+                    <Insets top="20.0" left="40.0"/>
+                </VBox.margin>
+            </HBox>
+            <HBox>
+                <children>
+                    <JFXTextField fx:id="jfxFilterBySv" labelFloat="true" promptText="Mã/Ho ten sinh viên">
+                        <HBox.margin>
+                            <Insets left="20.0" right="20.0"/>
+                        </HBox.margin>
+                    </JFXTextField>
+
+                </children>
+                <VBox.margin>
+                    <Insets top="40.0" bottom="20.0"/>
+                </VBox.margin>
+            </HBox>
+            <TableView fx:id="svNotInTable">
+                <columns>
+                    <TableColumn fx:id="maSvN" prefWidth="50.0" text="Mã Sv"/>
+                    <TableColumn fx:id="hoSvN" prefWidth="80.0" text=" Họ "/>
+                    <TableColumn fx:id="tenSvN" prefWidth="120.0" text="Tên"/>
+                    <TableColumn fx:id="khoaHocN" prefWidth="120.0" text="Khoa hoc"/>
+
+                </columns>
+                <contextMenu>
+                    <ContextMenu styleClass="table-context">
+                        <items>
+                            <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh"/>
+
+                            <MenuItem mnemonicParsing="false" onAction="#handleAddOption" text="Dang ky"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

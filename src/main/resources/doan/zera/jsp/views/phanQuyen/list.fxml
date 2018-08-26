@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" id="AnchorPane" prefHeight="550" prefWidth="1000.0"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="doan.zera.jsp.controller.phanQuyen.ListController">
+    <children>
+        <VBox>
+            <children>
+                <HBox spacing="30.0" alignment="CENTER" prefHeight="120.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: #2cd268">
+                    <children>
+                    </children>
+                </HBox>
+                <TableView fx:id="authoritiesTable" layoutX="0.0" layoutY="120.0" maxWidth="1000.0" prefHeight="400.0"
+                           prefWidth="1180.0">
+
+                    <columns>
+                        <TableColumn fx:id="username" prefWidth="100.0" text="username"/>
+                        <TableColumn fx:id="admin" prefWidth="80.0" text="ADMIN"/>
+                        <TableColumn fx:id="giaoVien" prefWidth="100.0" text="G.viên bộ môn"/>
+                        <TableColumn fx:id="qlDiem" prefWidth="80.0" text="QL Điểm"/>
+                        <TableColumn fx:id="qlGiaoVien" prefWidth="80.0" text="QL G.viên"/>
+                        <TableColumn fx:id="qlKhoa" prefWidth="80.0" text="QL Khoa"/>
+                        <TableColumn fx:id="qlKhoaHoc" prefWidth="80.0" text="QL Khóa học"/>
+                        <TableColumn fx:id="qlKyHoc" prefWidth="80.0" text="QL Kỳ học"/>
+                        <TableColumn fx:id="qlMonHoc" prefWidth="80.0" text="QL Môn học"/>
+                        <TableColumn fx:id="qlNganh" prefWidth="80.0" text="QL Ngành"/>
+                        <TableColumn fx:id="qlSinhVien" prefWidth="80.0" text="QL S.viên"/>
+                        <TableColumn fx:id="qlTKB" prefWidth="80.0" text="QL TKB"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                    <contextMenu>
+                        <ContextMenu styleClass="table-context">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onUpdateRole" text="Cập nhật"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+                <VBox fx:id="vboxUpdate">
+                    <HBox spacing="10.0" alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #2cd268">
+                        <children>
+                            <JFXCheckBox text="ADMIN" fx:id="cbadmin"/>
+                            <JFXCheckBox text="G.viên bộ môn" fx:id="cbgiaoVien"/>
+                            <JFXCheckBox text="QL Điểm" fx:id="cbqlDiem"/>
+                            <JFXCheckBox text="QL G.viên" fx:id="cbqlGiaoVien"/>
+                            <JFXCheckBox text="QL Khoa" fx:id="cbqlKhoa"/>
+                        </children>
+                    </HBox>
+                    <HBox spacing="10.0" alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #2cd268">
+                        <children>
+                            <JFXCheckBox text="QL Khóa học" fx:id="cbqlKhoaHoc"/>
+                            <JFXCheckBox text="QL Kỳ học" fx:id="cbqlKyHoc"/>
+                            <JFXCheckBox text="QL Môn học" fx:id="cbqlMonHoc"/>
+                            <JFXCheckBox text="QL Ngành" fx:id="cbqlNganh"/>
+                            <JFXCheckBox text="QL S.viên" fx:id="cbqlSinhVien"/>
+                            <JFXCheckBox text="QL TKB" fx:id="cbqlTKB"/>
+
+                        </children>
+                    </HBox>
+                    <HBox spacing="10.0" alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                          style="-fx-background-color: #2cd268">
+                        <children>
+                            <JFXButton text="Lưu" onAction="#onSave"/>
+                        </children>
+                    </HBox>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>

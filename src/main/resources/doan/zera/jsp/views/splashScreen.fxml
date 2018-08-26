@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="300" prefWidth="400"   xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="doan.zera.jsp.controller.FXMLDocumentController">
+   <Pane fx:id="paneC" layoutX="14.0" layoutY="23.0" prefHeight="299.0" prefWidth="570.0" style="-fx-background-color: rgba(238,238,238,0.86);" AnchorPane.bottomAnchor="-13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <Line endX="300.0" layoutX="100.0" layoutY="272.0" startX="-100.0" stroke="#5264AE" strokeWidth="5.0" />
+         <Line endX="220.0" layoutX="0.0" layoutY="155.0" rotate="-90" startX="-100.0" stroke="#5264AE" strokeWidth="5.0" />
+         <JFXProgressBar layoutX="75.0" layoutY="217.0" prefHeight="15.0" prefWidth="300.0" style="-fx-background-color: #5264AE;" />
+         <Label layoutX="153.0" layoutY="232.0" style="-fx-font-size: 14;-fx-text-fill: red" text="Đang tải dữ liệu nền" />
+         <Text layoutX="119.0" layoutY="121.0" style="-fx-font-size: 24;-fx-text-fill: BLACK" text="QUẢN LÝ ĐIỂM" />
+         <Text layoutX="112.0" layoutY="181.0" style="-fx-font-size: 24;-fx-text-fill: BLACK" text="ĐẠI HỌC VIỆT BẮC" />
+         <Label layoutX="250.0" layoutY="282.0" text="Sinh viên : LỤC VĂN HIẾU" />
+      </children>
+   </Pane>
+</AnchorPane>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="rootPane"
+           prefHeight="720.0" prefWidth="1000.0"
+           xmlns="http://javafx.com/javafx/8.0.121"
+           fx:controller="doan.zera.jsp.controller.giaoVien.DanhSachMonHocQuanLyController">
+    <children>
+        <VBox>
+            <children>
+                <HBox spacing="30.0" alignment="CENTER" prefHeight="60.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: #2cd268">
+                    <children>
+                        <JFXComboBox fx:id="cbbKyHoc" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                                     onAction="#onActionCbbKyHoc" promptText="Kỳ học"
+                                     style="-fx-background-color: transparent;" unFocusColor="#ad0b00"
+                                     HBox.hgrow="ALWAYS">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                </FXCollections>
+                            </items>
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                        </JFXComboBox>
+                        <JFXComboBox fx:id="cbbMonHoc" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                                     onAction="#onActionCbbMonHoc" promptText="Môn học"
+                                     style="-fx-background-color: transparent;" unFocusColor="#ad0b00"
+                                     HBox.hgrow="ALWAYS">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+
+                                </FXCollections>
+                            </items>
+                        </JFXComboBox>
+                        <JFXButton onAction="#onFliter" text="Lọc"></JFXButton>
+                    </children>
+                </HBox>
+                <TableView fx:id="diemTable" layoutX="0.0" layoutY="120.0" maxWidth="1000.0" prefHeight="480.0"
+                           prefWidth="1180.0">
+                    <columns>
+                        <TableColumn fx:id="maSv" prefWidth="20.0" text="Mã SV"/>
+                        <TableColumn fx:id="hoTenSv" prefWidth="40.0" text="Họ tên"/>
+                        <TableColumn fx:id="diemChuyenCan" maxWidth="90.0" minWidth="90.0" prefWidth="90.0"
+                                     resizable="false" text="Đ.Chuyên cần"/>
+                        <TableColumn fx:id="diemKiemTra" maxWidth="90.0" minWidth="90.0" prefWidth="90.0"
+                                     resizable="false" text="Đ.Kiểm tra"/>
+                        <TableColumn fx:id="diemGiuaKy" maxWidth="80.0" minWidth="80.0" resizable="false"
+                                     text="Đ.Giữa kỳ"/>
+                        <TableColumn fx:id="diemThi" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false"
+                                     text="Đ.Thi"/>
+                        <TableColumn fx:id="tongDiem" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false"
+                                     text="Tổng điểm"/>
+                        <TableColumn fx:id="diemChu" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false"
+                                     text="Đ.chữ"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                    <contextMenu>
+                        <ContextMenu styleClass="table-context">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onUpdatePoint" text="Sửa điểm"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+                <HBox spacing="30.0" alignment="CENTER" prefHeight="120.0" prefWidth="1000.0" HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: #2cd268">
+                    <children>
+                        <JFXTextField fx:id="jfxTFdcc" promptText="Điểm chuyên cần" labelFloat="true"/>
+                        <JFXTextField fx:id="jfxTFdkt" promptText="Điểm kiểm tra" labelFloat="true"/>
+                        <JFXTextField fx:id="jfxTFdt" promptText="Điểm thi" labelFloat="true"/>
+                        <JFXButton onAction="#onSave" text="Lưu điểm">
+                            <graphic>
+                                <MaterialDesignIconView glyphName="CONTENT_SAVE"/>
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                    <HBox.margin>
+                        <Insets top="20.0"/>
+                    </HBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.121"
+            fx:controller="doan.zera.jsp.controller.phongDaoTao.sinhVien.HocPhanDangKyController">
+    <children>
+        <TableView fx:id="monHocDaDangKy" prefHeight="400.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="tenMh" prefWidth="100.0" text="Tên M.học"/>
+                <TableColumn fx:id="hoTenGiaoVien" prefWidth="100.0" text="Giáo viên"/>
+                <TableColumn fx:id="tinChi" prefWidth="40.0" text="Tín chỉ"/>
+                <TableColumn fx:id="phongHoc" prefWidth="60.0" text="Phòng học"/>
+                <TableColumn fx:id="thu" prefWidth="50.0" text="Thứ"/>
+                <TableColumn fx:id="tiet" prefWidth="50.0" text="Tiết"/>
+            </columns>
+            <contextMenu>
+                <ContextMenu styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Hủy học phần"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <VBox alignment="TOP_CENTER" layoutX="400.0" prefHeight="400.0" prefWidth="400.0"
+              style="-fx-background-color: #84e461">
+
+            <Label style="-fx-font-size: 24;-fx-text-fill: blue" text="Danh sách học phần ">
+                <VBox.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </VBox.margin>
+            </Label>
+            <Label style="-fx-font-size: 24;-fx-text-fill: blue" fx:id="kyhocScope" text="">
+                <HBox.margin>
+                    <Insets top="5.0"/>
+                </HBox.margin>
+            </Label>
+            <TableView fx:id="monHocChuaDangKy">
+                <columns>
+                    <TableColumn fx:id="tenMhN" prefWidth="100.0" text="Tên M.học"/>
+                    <TableColumn fx:id="hoTenGiaoVienN" prefWidth="100.0" text="Giáo viên"/>
+                    <TableColumn fx:id="tinChiN" prefWidth="40.0" text="Tín chỉ"/>
+                    <TableColumn fx:id="phongHocN" prefWidth="60.0" text="Phòng học"/>
+                    <TableColumn fx:id="thuN" prefWidth="50.0" text="Thứ"/>
+                    <TableColumn fx:id="tietN" prefWidth="50.0" text="Tiết"/>
+                </columns>
+                <contextMenu>
+                    <ContextMenu styleClass="table-context">
+                        <items>
+                            <MenuItem mnemonicParsing="false" onAction="#handleAddOption" text="Đăng ký học phần"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

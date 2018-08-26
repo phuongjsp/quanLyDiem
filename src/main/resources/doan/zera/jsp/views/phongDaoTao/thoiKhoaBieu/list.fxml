@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="rootPane" prefHeight="550" prefWidth="760.0"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="doan.zera.jsp.controller.phongDaoTao.thoiKhoaBieu.ThoiKhoaBieuController">
+    <children>
+        <AnchorPane>
+            <children>
+                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="870.0" spacing="30.0"
+                      style="-fx-background-color: #2cd268" HBox.hgrow="ALWAYS">
+                    <children>
+
+                        <JFXComboBox fx:id="cbbKyHoc" style="-fx-background-color: transparent;"
+                                     focusColor="#02115a" unFocusColor="#ad0b00"
+                                     promptText="Học kỳ" HBox.hgrow="ALWAYS">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+
+                                </FXCollections>
+                            </items>
+                        </JFXComboBox>
+                        <JFXButton mnemonicParsing="false" fx:id="jfxBtnTimKiem" onAction="#onTimKiemByKyHoc"
+                                   style="-fx-background-color: transparent;" text="Tìm kiếm">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="SEARCH"/>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton onAction="#onThemThoiKhoaBieu" prefHeight="54.0"
+                                   style="-fx-background-color: #9f54ff"
+                                   prefWidth="166.0" text="Thêm mới TKB">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="PLUS"/>
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                </HBox>
+                <TableView fx:id="thoiKhoaBieuTable" layoutX="0.0" layoutY="60.0" prefHeight="500.0" prefWidth="870.0">
+                    <columns>
+                        <TableColumn fx:id="tenMonHoc" prefWidth="40.0" text="Môn học"/>
+                        <TableColumn fx:id="heSoTinChi" prefWidth="10.0" text="Số TC"/>
+                        <TableColumn fx:id="tenNganh" prefWidth="40.0" text="Ngành"/>
+                        <TableColumn fx:id="phongHoc" prefWidth="40.0" text="Phòng học"/>
+                        <TableColumn fx:id="tiet" prefWidth="40.0" text="Tiết"/>
+                        <TableColumn fx:id="tenGiaoVien" prefWidth="40.0" text="Giáo viên"/>
+                        <TableColumn fx:id="soLuongSV" prefWidth="40.0" text="SLSV Đ.ký"/>
+                        <TableColumn fx:id="thuTrongTuan" prefWidth="40.0" text="Thứ"/>
+                        <TableColumn fx:id="ngayBatDauString" prefWidth="40.0" text="Bắt đầu"/>
+                        <TableColumn fx:id="ngayKetThucString" prefWidth="40.0" text="Kết thức"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                    <contextMenu>
+                        <ContextMenu styleClass="table-context">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleEditOption" text="Cập nhật TKB"/>
+
+                                <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Xóa TKB"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handleAddSinhVien"
+                                          text="Sinh viên đăng ký học phần"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

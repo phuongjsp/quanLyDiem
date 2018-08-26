@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="contentPane" prefHeight="550" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="doan.zera.jsp.controller.phongDaoTao.kyHoc.KyHocController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="760.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Button onAction="#btnThemKyHoc" stylesheets="@../../css/dark-theme.css" prefHeight="54.0"
+                        prefWidth="166.0" text="Thêm học kỳ">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PLUS"/>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <TableView fx:id="kyHocTable" layoutX="150.0" layoutY="55.0" prefHeight="495.0" prefWidth="760.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="55.0">
+            <columns>
+                <TableColumn fx:id="maKyHoc" prefWidth="75.0" text="Mã kỳ học"/>
+                <TableColumn fx:id="tenKyHoc" prefWidth="150.0" text="Tên kỳ học"/>
+                <TableColumn fx:id="ngayBatDauHoc" prefWidth="75.0" text="Ngày B.đầu học"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <contextMenu>
+                <ContextMenu styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleEditOption" text="Cập nhật học kỳ"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Xóa học kỳ"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+    </children>
+</AnchorPane>

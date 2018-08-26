@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity"
+           maxWidth="-Infinity" minHeight="-Infinity" stylesheets="@../css/dark-theme.css"
+           minWidth="-Infinity" xmlns="http://javafx.com/javafx/9" prefWidth="500.0"
+           fx:controller="doan.zera.jsp.controller.capNhatUser.DoiMatKhauController" fx:id="rootPane">
+    <children>
+        <VBox spacing="30.0" alignment="CENTER" fx:id="vbox">
+            <Text fill="#000000" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 24px;"
+                  text="Đổi mật khẩu">
+                <VBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </VBox.margin>
+            </Text>
+            <JFXTextField fx:id="oldPassword" promptText="Mật khẩu cũ" labelFloat="true">
+                <VBox.margin>
+                    <Insets top="15.0" left="40"/>
+                </VBox.margin>
+            </JFXTextField>
+
+            <HBox>
+                <children>
+                <JFXTextField fx:id="newPassword" promptText="Mật khẩu mới" labelFloat="true"/>
+                <Label fx:id="lblNewPw"/>
+                </children>
+                <VBox.margin>
+                    <Insets top="15.0" left="40"/>
+                </VBox.margin>
+            </HBox>
+            <HBox>
+                <children>
+                <JFXTextField fx:id="confirmPassword" promptText="Nhập lại mật khẩu mới" labelFloat="true"/>
+                <Label fx:id="lblCfmPw"/>
+                </children>
+                <VBox.margin>
+                    <Insets top="15.0" left="40"/>
+                </VBox.margin>
+            </HBox>
+            <HBox>
+                <children>
+                    <JFXButton fx:id="btnSave" text="Đổi mật khẩu" onAction="#onSave"/>
+                    <JFXButton text="Hủy" onAction="#onCancel"/>
+                </children>
+                <VBox.margin>
+                    <Insets top="15.0" left="40"/>
+                </VBox.margin>
+            </HBox>
+
+        </VBox>
+    </children>
+</StackPane>

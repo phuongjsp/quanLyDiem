@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="contentPane" prefHeight="550" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="doan.zera.jsp.controller.phongDaoTao.khoaHoc.KhoaHocController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="760.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Button onAction="#btnThemKhoa" stylesheets="@../../css/dark-theme.css" prefHeight="54.0"
+                        prefWidth="166.0"
+                        text="Thêm khóa học">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PLUS"/>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <TableView fx:id="khoaTable" layoutX="150.0" layoutY="55.0" prefHeight="495.0" prefWidth="760.0"
+                   AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="55.0">
+            <columns>
+                <TableColumn fx:id="maKhoa" prefWidth="75.0" text="Mã khóa"/>
+                <TableColumn fx:id="tenKhoa" prefWidth="150.0" text="Tên khóa"/>
+                <TableColumn fx:id="namBatDau" prefWidth="75.0" text="Năm bắt đầu"/>
+                <TableColumn fx:id="SLSV" prefWidth="40.0" text="SL S.Viên"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <contextMenu>
+                <ContextMenu styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleEditOption" text="Cập nhật khóa học"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Xóa khóa học"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+    </children>
+</AnchorPane>

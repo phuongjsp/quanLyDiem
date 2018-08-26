@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="contentPane" prefHeight="550" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="doan.zera.jsp.controller.phongDaoTao.nganh.NganhController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="760.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Button onAction="#btnThemNganh" stylesheets="@../../css/dark-theme.css" prefHeight="54.0"
+                        prefWidth="166.0" text="Thêm mới ngành">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="PLUS"/>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <TableView fx:id="nganhTable" layoutX="150.0" layoutY="60.0" prefHeight="490.0" prefWidth="760.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="60.0">
+            <columns>
+                <TableColumn fx:id="maNganh" prefWidth="75.0" text="Mã ngành"/>
+                <TableColumn fx:id="tenNganh" prefWidth="150.0" text="Tên ngành"/>
+                <TableColumn fx:id="maKhoa" prefWidth="75.0" text="Khoa"/>
+                <TableColumn fx:id="SLSV" prefWidth="40.0" text="SL S.viên"/>
+                <TableColumn fx:id="SLMH" prefWidth="40.0" text="SL M.học"/>
+                <TableColumn fx:id="SLGV" prefWidth="40.0" text="SL G.viên"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <contextMenu>
+                <ContextMenu styleClass="table-context">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleEditOption" text="Cập nhật ngành"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Xóa ngành"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+
+    </children>
+</AnchorPane>

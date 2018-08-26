@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" id="AnchorPane" prefHeight="550" prefWidth="760.0"
+           xmlns="http://javafx.com/javafx/8"
+           fx:controller="doan.zera.jsp.controller.phongDaoTao.giaoVien.GiaovienController">
+    <children>
+        <AnchorPane>
+            <HBox spacing="30.0" alignment="CENTER" prefHeight="60.0" prefWidth="870.0" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: #2cd268">
+                <children>
+
+                    <JFXComboBox fx:id="cbbNganh" style="-fx-background-color: transparent;"
+                                 focusColor="#02115a" unFocusColor="#ad0b00" labelFloat="true"
+                                 promptText="Ngành" HBox.hgrow="ALWAYS">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+
+                            </FXCollections>
+                        </items>
+                    </JFXComboBox>
+                    <JFXButton mnemonicParsing="false" fx:id="jfxBtnTimKiem" onAction="#onTimKiemGV"
+                               style="-fx-background-color: transparent;" text="Tìm kiếm">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="SEARCH"/>
+                        </graphic>
+                    </JFXButton>
+                    <JFXButton onAction="#onThemGv" prefHeight="54.0" style="-fx-background-color: #85ff81"
+                               prefWidth="200.0" text="Thêm mới giáo viên">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="PLUS"/>
+                        </graphic>
+                    </JFXButton>
+                </children>
+            </HBox>
+            <TableView fx:id="giaoVienTable" layoutY="60.0" prefHeight="490.0" prefWidth="760.0"
+            >
+                <columns>
+                    <TableColumn fx:id="maGv" prefWidth="40.0" text="Mã GV"/>
+                    <TableColumn fx:id="ho" prefWidth="40.0" text="Họ"/>
+                    <TableColumn fx:id="ten" prefWidth="40.0" text="Tên"/>
+                    <TableColumn fx:id="gioiTinhString" prefWidth="40.0" text="Giới tính"/>
+                    <TableColumn fx:id="ngaySinhString" prefWidth="40.0" text="Ngày sinh"/>
+                    <TableColumn fx:id="queQuan" prefWidth="40.0" text="Quê quán"/>
+                    <TableColumn fx:id="maNganh" prefWidth="40.0" text="Ngành"/>
+                    <TableColumn fx:id="hocVi" prefWidth="40.0" text="Học vị/Học Hàm"/>
+                    <TableColumn fx:id="SLMonHocGiangDay" prefWidth="40.0" text="SL Môn học"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <contextMenu>
+                    <ContextMenu styleClass="table-context">
+                        <items>
+                            <MenuItem mnemonicParsing="false" onAction="#handleEditOption" text="Câp nhật"/>
+                            <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption" text="Xóa"/>
+                            <MenuItem mnemonicParsing="false" onAction="#handleListMonHoc"
+                                      text="Danh sách môn học giản dạy"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </TableView>
+        </AnchorPane>
+    </children>
+</StackPane>

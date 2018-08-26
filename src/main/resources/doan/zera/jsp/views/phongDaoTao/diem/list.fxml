@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="rootPane"
+           prefHeight="766" prefWidth="1180.0"
+           xmlns="http://javafx.com/javafx/8.0.121"
+           fx:controller="doan.zera.jsp.controller.phongDaoTao.diem.DiemController">
+    <children>
+        <AnchorPane>
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1180.0" spacing="30.0"
+                      style="-fx-background-color: #2cd268" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXComboBox fx:id="cbbKyHoc" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                                     onAction="#onActionCbbKyHoc" promptText="Kỳ học"
+                                     style="-fx-background-color: transparent;" unFocusColor="#ad0b00"
+                                     HBox.hgrow="ALWAYS">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                </FXCollections>
+                            </items>
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                        </JFXComboBox>
+                        <JFXComboBox fx:id="cbbMonHoc" focusColor="#02115a" labelFloat="true" maxWidth="150"
+                                     onAction="#onActionCbbMonHoc" promptText="Môn học"
+                                     style="-fx-background-color: transparent;" unFocusColor="#ad0b00"
+                                     HBox.hgrow="ALWAYS">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+
+                                </FXCollections>
+                            </items>
+                        </JFXComboBox>
+                        <JFXButton onAction="#onFliter" text="Lọc">
+
+                        </JFXButton>
+                        <JFXTextField fx:id="jfxFilterBySv" labelFloat="true" promptText="Họ tên/Mã sinh viên">
+                        </JFXTextField>
+                        <JFXTextField fx:id="jfxFilterByGv" labelFloat="true" promptText="Họ tên/Mã giáo viên">
+                        </JFXTextField>
+
+                        <JFXButton onAction="#onThongKe" text="Thống kê">
+                            <HBox.margin>
+                                <Insets left="15.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                    </children>
+                </HBox>
+                <TableView fx:id="diemTable" layoutX="0.0" layoutY="60.0" maxWidth="1200.0" prefHeight="706.0"
+                           prefWidth="1180.0">
+                    <columns>
+                        <TableColumn fx:id="maSv" prefWidth="20.0" text="Mã SV"/>
+                        <TableColumn fx:id="hoTenSv" prefWidth="40.0" text="Họ tên"/>
+                        <TableColumn fx:id="monHoc" prefWidth="40.0" text="Môn học"/>
+                        <TableColumn fx:id="maGV" prefWidth="20.0" text="Mã G.viên"/>
+                        <TableColumn fx:id="hoTenGV" prefWidth="40.0" text="Họ tên G.viên"/>
+                        <TableColumn fx:id="maKhoa" prefWidth="10.0" text="Khoá học"/>
+                        <TableColumn fx:id="diemChuyenCan" maxWidth="90.0" minWidth="90.0" prefWidth="90.0"
+                                     resizable="false" text="Đ.Chuyên cần"/>
+                        <TableColumn fx:id="diemKiemTra" maxWidth="90.0" minWidth="90.0" prefWidth="90.0"
+                                     resizable="false" text="Đ.Kiểm tra"/>
+                        <TableColumn fx:id="diemGiuaKy" maxWidth="80.0" minWidth="80.0" resizable="false"
+                                     text="Đ.Giữa kỳ"/>
+                        <TableColumn fx:id="diemThi" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false"
+                                     text="Đ.Thi"/>
+                        <TableColumn fx:id="tongDiem" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false"
+                                     text="Tổng điểm"/>
+                        <TableColumn fx:id="diemChu" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false"
+                                     text="Đ.chữ"/>
+                        <TableColumn fx:id="TL" maxWidth="70.0" minWidth="70.0" prefWidth="700" resizable="false"
+                                     text="Số TL"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

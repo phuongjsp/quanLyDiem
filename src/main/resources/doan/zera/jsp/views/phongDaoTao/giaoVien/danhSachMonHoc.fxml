@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" prefHeight="550.0" prefWidth="500.0"
+           xmlns="http://javafx.com/javafx/8" stylesheets="@../../stylesheet.css"
+           fx:controller="doan.zera.jsp.controller.phongDaoTao.giaoVien.DanhSachMonHocController"
+           style="-fx-background-color: rgba(58,216,111,0.85)">
+    <children>
+        <AnchorPane id="AnchorPane" fx:id="mainContainer" styleClass="custom-pane">
+            <children>
+                <HBox prefHeight="450.0" prefWidth="1000.0">
+                    <children>
+                        <VBox prefHeight="420.0" prefWidth="491.0">
+                            <children>
+                                <Label textAlignment="CENTER" text="Danh sách môn học đang giảng dạy"
+                                       style="-fx-font-size: 1.3em">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                </Label>
+                                <TableView fx:id="monHocTableIn" prefHeight="400.0" prefWidth="250.0">
+                                    <columns>
+                                        <TableColumn fx:id="maMhIn" prefWidth="100.0" text="Mã MH"/>
+                                        <TableColumn fx:id="tenMhIn" prefWidth="100.0" text="Tên MH"/>
+                                        <TableColumn fx:id="hesoIn" prefWidth="50.0" text="Hệ số"/>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <contextMenu>
+                                        <ContextMenu styleClass="table-context">
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#handleDeleteOption"
+                                                          text="Hủy môn học"/>
+                                            </items>
+                                        </ContextMenu>
+                                    </contextMenu>
+                                </TableView>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="420.0" prefWidth="490.0">
+                            <children>
+                                <Label textAlignment="CENTER" text="Danh sách môn học không giảng dạy"
+                                       style="-fx-font-size: 1.3em">
+                                    <VBox.margin>
+                                        <Insets bottom="5.0"/>
+                                    </VBox.margin>
+                                </Label>
+
+                                <TableView fx:id="monHocTableOut" prefHeight="400.0" prefWidth="250.0">
+                                    <columns>
+                                        <TableColumn fx:id="maMhOut" prefWidth="100.0" text="Mã MH"/>
+                                        <TableColumn fx:id="tenMhOut" prefWidth="100.0" text="Tên MH"/>
+                                        <TableColumn fx:id="hesoOut" prefWidth="50.0" text="Hệ số̉"/>
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                    </columnResizePolicy>
+                                    <contextMenu>
+                                        <ContextMenu styleClass="table-context">
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#handleAddOption"
+                                                          text="Thêm môn học"/>
+                                            </items>
+                                        </ContextMenu>
+                                    </contextMenu>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                    </padding>
+                </HBox>
+                <HBox layoutX="14.0" layoutY="447.0" prefHeight="86.0" prefWidth="984.0"
+                      stylesheets="@../../css/dark-theme.css">
+                    <children>
+                        <Pane prefHeight="66.0" prefWidth="988.0">
+                            <children>
+                                <JFXButton layoutX="597.0" prefHeight="66.0" prefWidth="204.0" onAction="#onCancel"
+                                           text="Hủy"/>
+                                <JFXButton layoutX="206.0" prefHeight="66.0" prefWidth="204.0" onAction="#onSave"
+                                           text="Lưu"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="25.0"/>
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="20.0"/>
+                    </padding>
+                </HBox>
+
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
