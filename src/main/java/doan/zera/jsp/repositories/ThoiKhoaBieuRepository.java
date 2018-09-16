@@ -47,6 +47,8 @@ public interface ThoiKhoaBieuRepository extends JpaRepository<ThoiKhoaBieu, Inte
     @Query(nativeQuery = true, value = "select t.* from thoi_khoa_bieu t where t.ky_hoc_id=?1 and t.giaovien_id=?2 and t.monhoc_id=?3")
     List<ThoiKhoaBieu> findAllByKyhocAndGiaoVienAndMonHoc(int idkyhoc, int idgiaoVien, int idmonHoc);
 
+    List<ThoiKhoaBieu> findAllByKyhocAndGiaoVienAndMonHoc(Kyhoc kyhoc,GiaoVien giaoVien,MonHoc monHoc);
+
     @Modifying
     @Query("select t.phongHoc from ThoiKhoaBieu t where t.kyhoc=?1 and t.soTiet=?2 and t.tietBatDau=?3 and t.thoiGianBatDau=?4")
     List<String> findAllPhongHocInKyHoc(Kyhoc kyhoc, int soTiet, int tietBatDau, Date thoiGianBatDau);

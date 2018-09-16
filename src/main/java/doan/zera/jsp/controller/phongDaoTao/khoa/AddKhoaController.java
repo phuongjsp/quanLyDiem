@@ -48,7 +48,7 @@ public class AddKhoaController extends FXMLController implements Initializable {
     public void onSave(ActionEvent actionEvent) {
         List<String> error = new ArrayList<>();
         if (maKhoa.getText().equals("")) error.add("mã khoa");
-        if (tenKhoa.getText().equals("")) error.add("tê Khoa");
+        if (tenKhoa.getText().equals("")) error.add("tên Khoa");
         if (!error.isEmpty()) {
             HelperUlti.showDialog(rootPane, "Bạn chưa chọn", error);
             return;

@@ -103,8 +103,7 @@ public class DanhSachMonHocQuanLyController extends FXMLController implements In
     public void onRefreshMain(ActionEvent actionEvent) {
         newData();
     }
-
-    public void newData() {
+    private void newData() {
         initClear();
         getGiaoVien();
         setCbbKyHoc();
@@ -122,16 +121,16 @@ public class DanhSachMonHocQuanLyController extends FXMLController implements In
         cbbMonHoc.getItems().clear();
     }
 
-    private void setDaTaDiemTable(int idKyhoc, int idMonHoc) {
-        List<ThoiKhoaBieu> thoiKhoaBieus = thoiKhoaBieuRepository.findAllByKyhocAndGiaoVienAndMonHoc(idKyhoc, giaoVienScope.getId(), idMonHoc);
+    private void setDaTaDiemTable() {
+        List<ThoiKhoaBieu> thoiKhoaBieus = thoiKhoaBieuRepository.findAllByKyhocAndGiaoVienAndMonHoc(getKyhocScope()
+                , giaoVienScope, getMonHocScope());
         thoiKhoaBieus.forEach(tkb -> {
-
-            long countDiem = diemRepository.countAllByThoiKhoaBieu(tkb);
-            for (int i = 0; i < countDiem; i++) {
+            for (int i = 0; i < diemRepository.countAllByThoiKhoaBieu(tkb); i++) {
                 diemRepository.findAllByThoiKhoaBieu(tkb, PageRequest.of(i, 1)).forEach(diem ->
                         observableList.add(new DiemDTO(diem)));
             }
         });
+        initClear();
         diemTable.setItems(observableList);
         diemTable.refresh();
     }
@@ -159,15 +158,16 @@ public class DanhSachMonHocQuanLyController extends FXMLController implements In
             HelperUlti.showDialog(rootPane, "Bạn chưa chọn", error);
             return;
         }
+        diemTable.getItems().clear();
         diemTable.setItems(FXCollections.observableArrayList());
-        setDaTaDiemTable(getKyhocScope().getId(), getMonHocScope().getId());
+        setDaTaDiemTable();
     }
 
     @FXML
     public void onActionCbbKyHoc(ActionEvent actionEvent) {
         if (cbbKyHoc.getSelectionModel().getSelectedItem() == null) return;
         kyhocScope = kyhocRepository.findByMaKyHoc(cbbKyHoc.getSelectionModel().getSelectedItem().getId());
-        setCbbMonHoc(getKyhocScope());
+        setCbbMonHoc();
     }
 
     public MonHoc getMonHocScope() {
@@ -182,10 +182,9 @@ public class DanhSachMonHocQuanLyController extends FXMLController implements In
         return kyhocScope;
     }
 
-    private void setCbbMonHoc(Kyhoc kyhoc) {
-
+    private void setCbbMonHoc() {
         cbbMonHoc.getItems().clear();
-        List<Integer> idMonHoc = thoiKhoaBieuRepository.findAllIdByKyhocAndIdGiaoVien(kyhoc.getId(), giaoVienScope.getId());
+        List<Integer> idMonHoc = thoiKhoaBieuRepository.findAllIdByKyhocAndIdGiaoVien(getKyhocScope().getId(), giaoVienScope.getId());
         idMonHoc.forEach(integer -> {
             MonHoc monHoc = monHocRepository.findById(integer).get();
             cbbMonHoc.getItems().add(HelperUlti.newLabel(monHoc.getMaMonHoc(), monHoc.getTenMonHoc()));

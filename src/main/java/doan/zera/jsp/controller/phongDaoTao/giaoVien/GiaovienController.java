@@ -136,9 +136,9 @@ public class GiaovienController extends FXMLController implements Initializable 
 
     public void save(GiaoVien giaoVien) {
         if (giaoVien.getId() == 0) {
+            usersRepository.snewuser(giaoVien.getMaGv(),bCryptPasswordEncoder.encode("123456"));
+            giaoVien.setUser(usersRepository.findUsersByUsername(giaoVien.getMaGv()));
             giaoVienTable.getItems().add(new GiaoVienDTO(giaoVienRepository.save(giaoVien)));
-            User user = new User(giaoVien.getMaGv(), bCryptPasswordEncoder.encode("123@123A"), true);
-            usersRepository.save(user);
             authoritiesRepository.save(new Authorities(giaoVien.getMaGv(), "DSMH"));
         } else
             for (int i = 0; i < giaoVienTable.getItems().size(); i++)

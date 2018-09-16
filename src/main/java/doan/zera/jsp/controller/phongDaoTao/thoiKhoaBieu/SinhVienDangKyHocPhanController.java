@@ -88,17 +88,18 @@ public class SinhVienDangKyHocPhanController extends FXMLController implements I
         this.tkbDTO = tkbDTO;
         this.thoiKhoaBieuController = thoiKhoaBieuController;
         setData(tkbDTO.getId());
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        initCol();
         initColNotIn();
         initKhoaHoc();
         cbbKhoaHoc.getItems().add(HelperUlti.newLabel("all", "Tất cả"));
         jfxFilterBySv.setOnKeyReleased(this::onFilterBySv);
         svNotInTable.setItems(sinhvienNotInList);
         svDkHpTable.setItems(sinhvienInList);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initCol();
+
     }
 
     private void initCol() {
@@ -124,7 +125,7 @@ public class SinhVienDangKyHocPhanController extends FXMLController implements I
 
     @FXML
     public void handleRefresh(ActionEvent actionEvent) {
-
+        refreshTable();
     }
 
     @FXML

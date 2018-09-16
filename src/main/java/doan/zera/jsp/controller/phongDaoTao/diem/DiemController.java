@@ -92,7 +92,6 @@ public class DiemController extends FXMLController implements Initializable {
 
     private void clearCbbMonHoc() {
         cbbMonHoc.getItems().clear();
-        cbbMonHoc.getItems().add(HelperUlti.newLabel("all", "Tất cả"));
     }
 
     private void clearKyHoc() {
@@ -126,20 +125,15 @@ public class DiemController extends FXMLController implements Initializable {
         diemTable.getItems().clear();
         if (idKyhoc == 0) {
             if (idMonHoc == 0) {
-                long countDiem = diemRepository.count();
-                for (int i = 0; i < countDiem; i++) {
+                for (int i = 0; i < diemRepository.count(); i++)
                     diemRepository.findAll(PageRequest.of(i, 1)).forEach(diem -> diemTable.getItems().add(new DiemDTO(diem)));
-                }
-            } else {
+            } else
                 thoiKhoaBieuRepository.findAllByIdMonHoc(idMonHoc).forEach(tkb -> {
-                    long countDiem = diemRepository.countAllByThoiKhoaBieu(tkb);
-                    for (int i = 0; i < countDiem; i++) {
+                    for (int i = 0; i < diemRepository.countAllByThoiKhoaBieu(tkb); i++) {
                         diemRepository.findAllByThoiKhoaBieu(tkb, PageRequest.of(i, 1)).forEach(diem ->
                                 diemTable.getItems().add(new DiemDTO(diem)));
                     }
                 });
-            }
-
         } else {
             List<ThoiKhoaBieu> thoiKhoaBieus = new Stack<>();
             if (idMonHoc == 0) {
@@ -192,8 +186,10 @@ public class DiemController extends FXMLController implements Initializable {
 
     private void setCbbMonHoc(Kyhoc kyhoc) {
         clearCbbMonHoc();
-        if (kyhoc.getId() == 0) thoiKhoaBieuRepository.findAllMonHoc().forEach(monHoc ->
-                cbbMonHoc.getItems().add(HelperUlti.newLabel(monHoc.getMaMonHoc(), monHoc.getTenMonHoc())));
+        if (kyhoc.getId() == 0)
+            thoiKhoaBieuRepository.findAllMonHoc().forEach(monHoc ->
+                cbbMonHoc.getItems().add(HelperUlti.newLabel(monHoc.getMaMonHoc(),
+                        monHoc.getTenMonHoc())));
         else
             thoiKhoaBieuRepository.findAllIdMonHoc(kyhoc)
                     .forEach(monHoc ->
@@ -203,10 +199,7 @@ public class DiemController extends FXMLController implements Initializable {
     @FXML
     public void onActionCbbMonHoc(ActionEvent actionEvent) {
         if (cbbMonHoc.getSelectionModel().getSelectedItem() == null) return;
-        if (cbbMonHoc.getSelectionModel().getSelectedItem().getId().equals("all")) {
-            monHocScope = new MonHoc();
-            return;
-        }
+
         monHocScope = monHocRepository.findByMaMonHoc(cbbMonHoc.getSelectionModel().getSelectedItem().getId());
     }
 

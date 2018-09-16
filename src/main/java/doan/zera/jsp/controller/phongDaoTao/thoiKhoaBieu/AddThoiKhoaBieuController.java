@@ -211,6 +211,11 @@ public class AddThoiKhoaBieuController extends FXMLController implements Initial
         setInitData();
         tongSoTietHoc.setTextFormatter(new TextFormatter<>(new IntegerStringConverter()));
         tinChi.setTextFormatter(new TextFormatter<>(new IntegerStringConverter()));
+        tinChi.setOnKeyPressed(event -> {
+            if (tinChi.getText().length()>3 ){
+                HelperUlti.showDialog(rootPane,"Tín chỉ không nên quá lớn",new Stack<>());
+            }
+        });
     }
 
     private void setInitData() {

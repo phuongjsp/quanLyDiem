@@ -22,7 +22,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Lazy
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "doan.zera.jsp.repositories")
-@EntityScan(basePackages = "doan.zera.jsp")
+@EntityScan(basePackages = "doan.zera.jsp.model")
 public class MainApp extends AbstractJavaFxApplicationSupport {
 
     public static void main(String[] args) {

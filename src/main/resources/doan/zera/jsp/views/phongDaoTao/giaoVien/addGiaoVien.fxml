@@ -12,7 +12,7 @@
            fx:controller="doan.zera.jsp.controller.phongDaoTao.giaoVien.AddGiaoVienController">
     <children>
         <AnchorPane id="AnchorPane" fx:id="mainContainer" prefHeight="338.0" prefWidth="464.0" styleClass="custom-pane"
-                    stylesheets="@../../css/dark-theme.css">
+                    >
             <children>
                 <VBox prefHeight="256.0" prefWidth="404.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

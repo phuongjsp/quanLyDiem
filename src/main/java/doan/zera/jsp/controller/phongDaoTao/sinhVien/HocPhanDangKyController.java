@@ -82,6 +82,9 @@ public class HocPhanDangKyController extends FXMLController implements Initializ
         setDataMonHocChuaDangKy();
         monHocDaDangKy.setItems(observableDaDangKyList);
         monHocChuaDangKy.setItems(observableChuaDangKyList);
+        initCol();
+        initColN();
+        kyhocScope.setText(kyhoc.getTenKyHoc());
     }
 
     private void initCol() {
@@ -104,9 +107,7 @@ public class HocPhanDangKyController extends FXMLController implements Initializ
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initCol();
-        initColN();
-        kyhocScope.setText(kyhoc.getTenKyHoc());
+
     }
 
     private void setDataMonHocDaDangKyTable() {

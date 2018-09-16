@@ -44,7 +44,7 @@ public class SecurityConfiguration extends GlobalMethodSecurityConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
         entityManager.setDataSource(dataSource());
-        entityManager.setPackagesToScan(new String[]{"doan.zera.jsp.model"});
+        entityManager.setPackagesToScan("doan.zera.jsp.model");
         JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         entityManager.setJpaVendorAdapter(jpaVendorAdapter);
         Properties properties = new Properties();
